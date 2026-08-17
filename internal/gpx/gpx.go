@@ -27,7 +27,7 @@ func ParseTrack(r io.Reader) ([]Point, error) {
 		return nil, err
 	}
 
-	var points []Point
+	points := make([]Point, 0, len(rows))
 	for i, row := range rows {
 		if i == 0 && len(row) > 0 && row[0] == "lat" {
 			continue
